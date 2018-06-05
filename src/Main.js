@@ -19,7 +19,7 @@ export default class Main extends Component {
         <div className="App-title-bar">
           <span>Trello Activity Report</span>
         </div>
-        <Container>
+        <Container class="main-container">
           <Row>
             <Col xs="3">
               <FiltersContainer />

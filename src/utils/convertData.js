@@ -2,8 +2,8 @@ export function convertReportData(data) {
 
   const statusMap = {
     activeMemberCount: 'Members',
-    licensedMemberCount: 'Licensed Members',
-    inactiveMemberCount: 'Inactive Member',
+    licensedMemberCount: 'Licensed Users',
+    inactiveMemberCount: 'Inactive Users',
     deletedBoardCount: 'Deleted Boards',
     activeBoardCount: 'Active Boards',
     archivedBoardCount: 'Archived Boards'
