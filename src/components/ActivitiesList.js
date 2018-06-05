@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { activitiesFetchData } from "../actions/apiActivitiesCall";
 import loader from "../loader.gif";
+import question from '../question.png';
+import DisplayDate from './DisplayDate';
 
 class ActivitiesList extends Component {
 
@@ -19,19 +21,24 @@ class ActivitiesList extends Component {
       return <p><img src={loader} alt="loader" />Loading…</p>;
     }
 
-    return (
-      <div>
-        <p>Activity Log</p>
-        
-        <p>Activity Type</p>
+    return <div>
+        <img src={question} className="help-icon" alt="help-icon" />
+        <div className="activity-header">
+          <p className="section-title">Activity Log</p>
+          <DisplayDate />
+        </div>
+
+        <div className="activity-item activity-item--bold">
+          <p>Activity Type</p>
+          <p>Number</p>
+        </div>
         {this.props.activities.map(activity => (
           <div key={activity.key} className="activity-item">
             <div>{activity.name}</div>
             <div>{activity.value}</div>
           </div>
         ))}
-      </div>
-    );
+      </div>;
   }
 }
 

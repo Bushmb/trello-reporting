@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Card, CardTitle, CardBody, CardText, CardSubtitle } from 'reactstrap';
+import { Card, CardBody, CardText } from 'reactstrap';
 import { itemsFetchData } from "../actions/apiReportCall";
 import loader from '../loader.gif';
+import question from '../question.png';
+import DisplayDate from './DisplayDate';
 
 class CardList extends Component {
 
@@ -13,22 +15,19 @@ class CardList extends Component {
   }
 
   render() {
+
     if (this.props.hasError) {
       return <p>Sorry! There was an error loading the items</p>;
     }
-
-    // if (this.props.isLoading) {
-    //   return <p>Loading…</p>;
-    // }
-
 
     return (
       <div className="reports-container">
         {this.props.items.map(item => (
           <Card className="report-card" key={item.key}>
-            <CardBody>
-              <CardTitle>{item.name}</CardTitle>
-              <CardSubtitle>Stuff</CardSubtitle>
+            <img src={question} className="help-icon" alt="help-icon" />
+            <CardBody className="card-body">
+              <div className="section-title">{item.name}</div>
+              {item.key === 'inactiveMemberCount' ? <div className='display-date'>6 Months or More</div> : <DisplayDate />}
               <CardText className="card-data">
                   { this.props.isLoading ? <img src={loader} alt="loader" /> : <span>{item.value}</span> }
               </CardText>
@@ -45,14 +44,17 @@ CardList.propTypes = {
   fetchData: PropTypes.func.isRequired,
   items: PropTypes.array.isRequired,
   hasError: PropTypes.bool.isRequired,
-  isLoading: PropTypes.bool.isRequired
+  isLoading: PropTypes.bool.isRequired,
+  displayDate: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => {
+  
   return {
     items: state.items,
     hasError: state.itemsHaveError,
-    isLoading: state.itemsAreLoading
+    isLoading: state.itemsAreLoading,
+    displayDate: state.setDate.displayDate
   };
 };
 

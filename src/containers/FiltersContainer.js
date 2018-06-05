@@ -28,7 +28,7 @@ class FiltersContainer extends Component {
   };
 
   onBothChange = (startDate, endDate) => {
-
+    console.log(startDate, endDate);
     const start = moment(startDate).format("YYYY-MM-DD");
     const end = moment(endDate).format("YYYY-MM-DD");
     this.props.setBothDates(start, end);
@@ -74,7 +74,7 @@ class FiltersContainer extends Component {
         </div>
 
         <p>Quick Filters</p>
-        
+
         <Button className='filter-button filter-button--purple' autoFocus
           onClick={() =>
             this.onBothChange("1970-01-01", moment().format("YYYY-MM-DD"))
@@ -131,6 +131,7 @@ const mapStateToProps = state => {
     endDate: moment(state.setDate.endDate)
   };
 };
+
 const mapDispatchToProps = (dispatch) => ({
 
   setStartDate: (startDate) => dispatch(setStartDate(startDate)),

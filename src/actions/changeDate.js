@@ -12,6 +12,7 @@ export const setEndDate = endDate => ({
   endDate
 });
 
+// SET_BOTH_DATES
 const SET_BOTH_DATES = 'SET_BOTH_DATES';
 export const setBothDates = (startDate, endDate) => ({
   type: SET_BOTH_DATES,

@@ -1,6 +1,10 @@
 .App {
-  text-align: center;
+  text-align: left;
   position: relative;
+}
+
+p {
+  margin-bottom: 0;
 }
 
 .App-logo {
@@ -27,11 +31,6 @@
 
 .App-intro {
   font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .filters-container {
@@ -76,8 +75,22 @@
   margin-bottom: 25px;
 }
 
+.help-icon {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  height: 15px;
+  width: 15px;
+  margin: 2px;
+}
+
+.card-body {
+  text-align: center;
+  padding: 8px;
+}
+
 .card-data {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
 }
 
@@ -85,14 +98,42 @@
   background-color: #fff;
   grid-column: 1 / 3;
   padding: 10px;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.display-date {
+  font-size: 14px;
+  color: #bababa;
+}
+
+.activity-header {
+  margin-bottom: 15px;
 }
 
 .activity-item {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #bababa;
+  margin-bottom: 7px;
+  font-size: 14px;
 }
 
+.activity-item--bold {
+  font-weight: bold;
+}
+
+.activity-item:not(:last-child) {
+  border-bottom: 1px solid #bababa;
+}
+
+.report-card,
+.activity-log {
+  position: relative;
+}
 
 .react-datepicker__header {
   text-align: center;
