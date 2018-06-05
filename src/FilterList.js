@@ -13,8 +13,8 @@ export default class FilterList extends Component {
           </div>
         </div>
         <div>
-          <button onClick={this.props.setDates(2017, 2018)}>All Time</button>
-          <button>Yesterday</button>
+          <button onClick={() => this.props.setDates("1970-01-01", "Now") }>All Time</button>
+          <button onClick={() => this.props.setDates("Today-1", "Now") }>Yesterday</button>
           <button>Last 7 Days</button>
           <button>Last 30 Days</button>
           <button>Last 6 Months</button>

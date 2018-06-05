@@ -1,25 +1,36 @@
 import React, { Component } from "react";
-import FilterList from "./FilterList";
+import { Container, Row, Col } from 'reactstrap';
+import FiltersContainer from './containers/FiltersContainer';
+import ReportsContainer from './containers/ReportsContainer';
+import hubLogo from "./hubLogo.jpg";
+import "react-datepicker/dist/react-datepicker.css";
+import "./App.css";
+
 
 export default class Main extends Component {
-  constructor(props) {
-    super(props);
-
-    this.handler = this.handler.bind(this);
-  }
-
-  handler(startDate, endDate) {
-    console.log(startDate, endDate);
-  }
   
   render() {
-    const { appState, setAppState } = this.props;
 
     return (
-      <div className="app">
-        <p>App</p>
-        <FilterList setDates={this.handler} {...{ appState, setAppState }} />
+      <div className="App">
+        <header className="App-header">
+          <img src={hubLogo} className="App-logo" alt="logo" />
+        </header>
+        <div className="App-title-bar">
+          <span>Trello Activity Report</span>
+        </div>
+        <Container>
+          <Row>
+            <Col xs="3">
+              <FiltersContainer />
+            </Col>
+            <Col xs="9">
+              <ReportsContainer />
+            </Col>
+          </Row>
+        </Container>
+
       </div>
-    );
+    )
   }
 }
